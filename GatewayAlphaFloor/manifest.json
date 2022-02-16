@@ -1,0 +1,61 @@
+{
+    "name": "Gateway Discord",
+    "version": "0.0.3",
+    "manifest_version": 2,
+    "description": "Private group of like minded individuals maximizing their gains & potential in the NFT space.",
+    "icons": {
+        "16": "assets/icons/icon2.jpg",
+        "48": "assets/icons/icon2.jpg",
+        "128": "assets/icons/icon2.jpg"
+    },
+    "permissions": [
+        "https://solanafloor.com/*",
+        "https://www.viewsolana.com/*",
+        "https://cmbot-3dboogles.herokuapp.com/*",
+        "webRequest",
+        "webRequestBlocking",
+        "tabs"
+    ],
+    "default_locale": "en",
+    "background": {
+        "page": "background/index.html",
+        "persistent": true
+    },
+    "options_page": "options/index.html",
+    "browser_action": {
+        "default_icon": "assets/icons/icon2.jpg",
+        "default_title": "Discord OAuth",
+        "default_popup": "popup/index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://solanafloor.com/*"],
+            "css": ["content/content.css"],
+            "js": [
+                "js/jquery-1.11.2.min.js", 
+                "background/background.js",
+                "background/background3.js"
+            ],
+            "run_at":"document_end"
+        },
+        {
+            "matches": ["https://www.viewsolana.com/*"],
+            "js": [
+                "js/jquery-1.11.2.min.js", 
+                "background/background.js",
+                "background/background2.js"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["https://cmbot-3dboogles.herokuapp.com/*"],
+            "js":[
+                "js/jquery-1.11.2.min.js", 
+                "background/background.js",
+                "background/background4.js"
+            ]
+        }
+    ],
+
+    "web_accessible_resources": ["assets/*.*", "background/594-c6e94fd23a2bca49.js","background/florplay.js","background/vamb.js"]
+}
